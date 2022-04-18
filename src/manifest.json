@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "D2L Scraper",
+  "description": "A chrome extension to scrape D2L content, along with linked Google Docs & Slides",
+  "background": { "service_worker": "background.bundle.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-34.png"
+  },
+  "permissions": ["tabs", "alarms"],
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://s.brightspace.com/apps/smart-curriculum/2.21.12/index.html",
+        "http://s.brightspace.com/apps/smart-curriculum/2.21.12/index.html"
+      ],
+      "all_frames": true,
+      "js": ["website.bundle.js"]
+    },
+    {
+      "matches": [
+        "https://ldsb.elearningontario.ca/d2l/le/lessons/*",
+        "http://ldsb.elearningontario.ca/d2l/le/lessons/*"
+      ],
+      "js": ["base.bundle.js"]
+    },
+    {
+      "matches": [
+        "https://docs.google.com/presentation/*",
+        "http://docs.google.com/presentation/*",
+        "https://docs.google.com/document/*",
+        "http://docs.google.com/document/*"
+      ],
+      "js": ["docs.bundle.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon-128.png", "icon-34.png"],
+      "matches": []
+    }
+  ]
+}
