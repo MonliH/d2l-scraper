@@ -2,7 +2,7 @@
 A chrome extension to scrape D2L content (also opens links to google drive and slides, then downloads them).
 
 ## Building
-If you want to build the code yourself, download the code *using `git` or as a zip), then:
+If you want to build the code yourself, download the code (as a zip from github or by using `git`), then:
 
 ```bash
 cd d2l-scrape
